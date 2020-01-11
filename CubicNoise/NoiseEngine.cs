@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise.Builders;
 using CubicNoise.Contracts;
 using CubicNoise.Noisers;
 
@@ -23,7 +22,7 @@ namespace CubicNoise
             };
         }
 
-        public static NoiseEngine CreateEngine(NoiseBuilder builder) => new NoiseEngine(builder.NoiseType, builder.NoiseSeed, builder.NoiseIntParameters);
+        public static NoiseEngine Create(EngineParameters parameters) => new NoiseEngine(parameters.Type, parameters.Seed, parameters?.IntParameters);
 
         public float Get(float x) => this.engine.Get(x);
 
