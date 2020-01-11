@@ -106,11 +106,12 @@ namespace CubicNoiseTests
         }
 
         [Test]
-        public void Performance1Second()
+        public void Performance1Second2D()
         {
             var stopwatch = new Stopwatch();
             var desiredRuntime = TimeSpan.FromSeconds(1);
             var counter = 0;
+            var sum = 0L;
 
             var engine = NoiseEngine.Create(new EngineParameters
             {
@@ -132,24 +133,26 @@ namespace CubicNoiseTests
                 var y = (int)Math.Pow(counter, 2);
 
                 stopwatch.Start();
-                engine.Get(x, y);
+                var value = engine.Get(x, y);
                 stopwatch.Stop();
+                sum += (long) value;
 
                 if (stopwatch.Elapsed >= desiredRuntime)
                     break;
             }
 
             var result = counter / stopwatch.Elapsed.TotalSeconds;
-            TestContext.Write($"Benchmark for 1 second: {result:###,###,##0.00} lookups/second");
+            TestContext.Write($"Benchmark for 1 second (2D): {result:###,###,##0.00} lookups/second");
             Assert.That(true);
         }
 
         [Test]
-        public void Performance30Seconds()
+        public void Performance30Seconds2D()
         {
             var stopwatch = new Stopwatch();
             var desiredRuntime = TimeSpan.FromSeconds(30);
             var counter = 0;
+            var sum = 0L;
 
             var engine = NoiseEngine.Create(new EngineParameters
             {
@@ -171,15 +174,96 @@ namespace CubicNoiseTests
                 var y = (int)Math.Pow(counter, 2);
 
                 stopwatch.Start();
-                engine.Get(x, y);
+                var value = engine.Get(x, y);
                 stopwatch.Stop();
+                sum += (long) value;
 
                 if (stopwatch.Elapsed >= desiredRuntime)
                     break;
             }
 
             var result = counter / stopwatch.Elapsed.TotalSeconds;
-            TestContext.Write($"Benchmark for 30 seconds: {result:###,###,##0.00} lookups/second");
+            TestContext.Write($"Benchmark for 30 seconds (2D): {result:###,###,##0.00} lookups/second");
+            Assert.That(true);
+        }
+
+        [Test]
+        public void Performance1Second1D()
+        {
+            var stopwatch = new Stopwatch();
+            var desiredRuntime = TimeSpan.FromSeconds(1);
+            var counter = 0;
+            var sum = 0L;
+
+            var engine = NoiseEngine.Create(new EngineParameters
+            {
+                Seed = "test seed".GetHashCode(),
+                Type = NoiseTypes.CUBIC_NOISE,
+                IntParameters = new Dictionary<IParameterName, int>
+                {
+                    { CubicNoiseIntParameters.OCTAVE, 57 },
+                    { CubicNoiseIntParameters.PERIOD_X, 12 },
+                    { CubicNoiseIntParameters.PERIOD_Y, 16 },
+                },
+            });
+
+            while (true)
+            {
+                counter++;
+
+                var x = counter;
+
+                stopwatch.Start();
+                var value = engine.Get(x);
+                stopwatch.Stop();
+                sum += (long)value;
+
+                if (stopwatch.Elapsed >= desiredRuntime)
+                    break;
+            }
+
+            var result = counter / stopwatch.Elapsed.TotalSeconds;
+            TestContext.Write($"Benchmark for 1 second (1D): {result:###,###,##0.00} lookups/second");
+            Assert.That(true);
+        }
+
+        [Test]
+        public void Performance30Seconds1D()
+        {
+            var stopwatch = new Stopwatch();
+            var desiredRuntime = TimeSpan.FromSeconds(30);
+            var counter = 0;
+            var sum = 0L;
+
+            var engine = NoiseEngine.Create(new EngineParameters
+            {
+                Seed = "test seed".GetHashCode(),
+                Type = NoiseTypes.CUBIC_NOISE,
+                IntParameters = new Dictionary<IParameterName, int>
+                {
+                    { CubicNoiseIntParameters.OCTAVE, 57 },
+                    { CubicNoiseIntParameters.PERIOD_X, 12 },
+                    { CubicNoiseIntParameters.PERIOD_Y, 16 },
+                },
+            });
+
+            while (true)
+            {
+                counter++;
+
+                var x = counter;
+
+                stopwatch.Start();
+                var value = engine.Get(x);
+                stopwatch.Stop();
+                sum += (long) value;
+
+                if (stopwatch.Elapsed >= desiredRuntime)
+                    break;
+            }
+
+            var result = counter / stopwatch.Elapsed.TotalSeconds;
+            TestContext.Write($"Benchmark for 30 seconds (1D): {result:###,###,##0.00} lookups/second");
             Assert.That(true);
         }
     }
