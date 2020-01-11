@@ -11,6 +11,6 @@ namespace CubicNoise
 
         public NoiseTypes Type { get; set; } = NoiseTypes.UNKNOWN;
 
-        public Dictionary<IParameterName, int> IntParameters { get; set; }
+        public IReadOnlyDictionary<IParameterName, int> IntParameters { get; set; }
     }
 }

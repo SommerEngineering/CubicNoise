@@ -10,7 +10,7 @@ namespace CubicNoise
     {
         private readonly INoiseEngine engine;
 
-        private NoiseEngine(NoiseTypes type, int seed, Dictionary<IParameterName, int> intParameters)
+        private NoiseEngine(NoiseTypes type, int seed, IReadOnlyDictionary<IParameterName, int> intParameters)
         {
             this.engine = type switch
             {
