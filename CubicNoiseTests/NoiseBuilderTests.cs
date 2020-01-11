@@ -15,7 +15,7 @@ namespace CubicNoiseTests
         {
             var engine = NoiseEngine.Create(new EngineParameters
             {
-                Seed = "test seed".GetHashCode(),
+                Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
                 IntParameters = new Dictionary<IParameterName, int>
                 {
@@ -76,7 +76,7 @@ namespace CubicNoiseTests
         {
             var engine = NoiseEngine.Create(new EngineParameters
             {
-                Seed = "test seed".GetHashCode(),
+                Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
                 IntParameters = new Dictionary<IParameterName, int>
                 {
