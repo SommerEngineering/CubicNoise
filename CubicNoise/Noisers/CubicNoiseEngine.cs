@@ -6,7 +6,16 @@ using CubicNoise.Contracts;
 
 namespace CubicNoise.Noisers
 {
-    public sealed class CubicNoiseEngine : INoiseEngine
+    /// <summary>
+    /// This is the cubic noise engine by Job Talle, cf. https://jobtalle.com/cubic_noise.html. It based on the
+    /// C# version which was provided at Github: https://github.com/jobtalle/CubicNoise/blob/master/c%23/CubicNoise.cs.
+    ///
+    /// Thanks Job for your implementation.
+    ///
+    /// Compared to Job's version, this implementation is a bit optimized and
+    /// used useful C# 8.0 / .NET Core 3.1 LTS features.
+    /// </summary>
+    internal sealed class CubicNoiseEngine : INoiseEngine
     {
         private const int RANDOM_NUMBER_A =   134_775_813;
         private const int RANDOM_NUMBER_B = 1_103_515_245;
@@ -16,7 +25,7 @@ namespace CubicNoise.Noisers
         private readonly int periodY;
         private readonly int seed;
 
-        public CubicNoiseEngine(int seed, IReadOnlyDictionary<IParameterName, int> intParameters)
+        internal CubicNoiseEngine(int seed, IReadOnlyDictionary<IParameterName, int> intParameters)
         {
             this.seed = seed;
             this.octave = intParameters?.ContainsKey(CubicNoiseIntParameters.OCTAVE) == true ? intParameters[CubicNoiseIntParameters.OCTAVE] : 16;

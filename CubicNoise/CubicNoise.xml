@@ -4,5 +4,165 @@
         <name>CubicNoise</name>
     </assembly>
     <members>
+        <member name="T:CubicNoise.Contracts.INoiseEngine">
+            <summary>
+            An interface which each noise generator must implement.
+            </summary>
+        </member>
+        <member name="M:CubicNoise.Contracts.INoiseEngine.Get(System.Single)">
+            <summary>
+            Producing a one-dimensional based noise value.
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <returns>The noise value.</returns>
+        </member>
+        <member name="M:CubicNoise.Contracts.INoiseEngine.Get(System.Single,System.Single)">
+            <summary>
+            Produces a two-dimensional based noise value.
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <param name="y">The y coordinate.</param>
+            <returns>The noise value.</returns>
+        </member>
+        <member name="T:CubicNoise.Contracts.IParameterName">
+            <summary>
+            An interface which gets used to provide arbitrary parameter names
+            to the general noise engine class. It is a way to abstract the
+            concrete (but to the general noise engine class unknown) parameters
+            for different noise generators.
+            </summary>
+        </member>
+        <member name="T:CubicNoise.EngineParameters">
+            <summary>
+            This class stores all parameters needed to create a noise engine instance.
+            </summary>
+        </member>
+        <member name="P:CubicNoise.EngineParameters.Seed">
+            <summary>
+            The engine's seed value. To use a string value as seed, use the GetDeterministicHashCode() method
+            which gets provided by this library. A different seed value results in a complete different result.
+            When you generate e.g. a landscape, two different seeds will produce different landscapes.
+            </summary>
+        </member>
+        <member name="P:CubicNoise.EngineParameters.Type">
+            <summary>
+            The desired kind of noise generator.
+            </summary>
+        </member>
+        <member name="P:CubicNoise.EngineParameters.IntParameters">
+            <summary>
+            A dictionary of additional parameters needed by the chosen noise generator.
+            </summary>
+        </member>
+        <member name="T:CubicNoise.Extensions">
+            <summary>
+            Extension methods for this library.
+            </summary>
+        </member>
+        <member name="M:CubicNoise.Extensions.GetDeterministicHashCode(System.String)">
+             <summary>
+             This is a deterministic hash function for strings. The official hash methods in .NET Core are no longer
+             deterministic due to possible hashing attacks, cf. https://youtu.be/R2Cq3CLI6H8.
+            
+             The source for this implementation: https://andrewlock.net/why-is-string-gethashcode-different-each-time-i-run-my-program-in-net-core/.
+             Thanks Andrew for providing such a hash function.
+            
+             Aware: Never use this hash function for any security-related task or for any hashtable storage, etc.
+             
+             Please use it only in the case, that you really need a deterministic value. In the context of this
+             library, the hash values are usually used for media, games, art, or simulations in order to share
+             results with others. This is the only valid use case!
+             </summary>
+             <param name="str">The string for which a hash value is to be computed.</param>
+             <returns>A deterministic 32 bit / 4 byte hash value of the given string.</returns>
+        </member>
+        <member name="T:CubicNoise.NoiseEngine">
+             <summary>
+             The main class of the library. You should use it to generate a noise engine. This class is thread-safe.
+             You can use all methods from as many threads, as you want. There a no async methods, because the
+             performance is very high. Even on a 2019 mid-size business laptop with Intel i5 CPU, each core
+             is able to produce > 6 million values per second (2 dimensions).
+            
+             Not only the factory method is thread-safe. Each instance of the class is thread-safe as well.
+             </summary>
+        </member>
+        <member name="M:CubicNoise.NoiseEngine.Create(CubicNoise.EngineParameters)">
+            <summary>
+            The factory method to use for generating a noise engine. This method is thread-safe. Call it from as many threads
+            as you want.
+            </summary>
+            <param name="parameters">The parameters for the desired noise engine.</param>
+            <returns>The desired noise engine instance.</returns>
+        </member>
+        <member name="M:CubicNoise.NoiseEngine.Get(System.Single)">
+            <summary>
+            Yields a one-dimensional based noise value. This method is thread-safe as well. Call it from as
+            many threads as you want. You can expect about 16 million calls per CPU core per second (year 2019).
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <returns>The corresponding noise value for the given coordinate.</returns>
+        </member>
+        <member name="M:CubicNoise.NoiseEngine.Get(System.Single,System.Single)">
+            <summary>
+            Yields a two-dimensional based noise value. This method is thread-safe as well. Call it from as
+            many threads as you want. You can expect about 6 million calls per CPU core per second (year 2019).
+            </summary>
+            <param name="x">The x coordinate.</param>
+            <param name="y">The y coordinate.</param>
+            <returns>The corresponding noise value for the given 2d coordinate.</returns>
+        </member>
+        <member name="T:CubicNoise.Noisers.CubicNoiseEngine">
+             <summary>
+             This is the cubic noise engine by Job Talle, cf. https://jobtalle.com/cubic_noise.html. It based on the
+             C# version which was provided at Github: https://github.com/jobtalle/CubicNoise/blob/master/c%23/CubicNoise.cs.
+            
+             Thanks Job for your implementation.
+            
+             Compared to Job's version, this implementation is a bit optimized and
+             used useful C# 8.0 / .NET Core 3.1 LTS features.
+             </summary>
+        </member>
+        <member name="T:CubicNoise.Noisers.CubicNoiseIntParameters">
+            <summary>
+            This class contains all known cubic noise's parameters.
+            </summary>
+        </member>
+        <member name="F:CubicNoise.Noisers.CubicNoiseIntParameters.OCTAVE">
+            <summary>
+            Cubic noise's octave parameter.
+            </summary>
+        </member>
+        <member name="F:CubicNoise.Noisers.CubicNoiseIntParameters.PERIOD_X">
+            <summary>
+            Cubic noise's period x parameter.
+            </summary>
+        </member>
+        <member name="F:CubicNoise.Noisers.CubicNoiseIntParameters.PERIOD_Y">
+            <summary>
+            Cubic noise's period y parameter.
+            </summary>
+        </member>
+        <member name="T:CubicNoise.Noisers.RandomNumberEngine">
+            <summary>
+            This is the random number engine which gets used in case that the UNKNOWN type was used.
+            This engine is not meant for production. It is a placeholder for empty values, where a type
+            is needed. The engine will generate a random value each time.
+            </summary>
+        </member>
+        <member name="T:CubicNoise.NoiseTypes">
+            <summary>
+            All implemented noise generators.
+            </summary>
+        </member>
+        <member name="F:CubicNoise.NoiseTypes.UNKNOWN">
+            <summary>
+            The UNKNOWN generator is a placeholder for empty values. You should not use it in production. It generates random numbers on every call.
+            </summary>
+        </member>
+        <member name="F:CubicNoise.NoiseTypes.CUBIC_NOISE">
+            <summary>
+            This is the cubic noise generator by Job Talle, cf. https://jobtalle.com/cubic_noise.html and https://github.com/jobtalle.
+            </summary>
+        </member>
     </members>
 </doc>

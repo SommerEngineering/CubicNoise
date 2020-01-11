@@ -16,6 +16,10 @@
     <DocumentationFile>C:\Users\Thorsten\Downloads\repos\CubicNoise\CubicNoise\CubicNoise.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Thorsten\Downloads\repos\CubicNoise\CubicNoise\CubicNoise.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Include="..\LICENSE">
       <Pack>True</Pack>

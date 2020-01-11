@@ -5,11 +5,16 @@ using CubicNoise.Contracts;
 
 namespace CubicNoise.Noisers
 {
-    public sealed class RandomNumberEngine : INoiseEngine
+    /// <summary>
+    /// This is the random number engine which gets used in case that the UNKNOWN type was used.
+    /// This engine is not meant for production. It is a placeholder for empty values, where a type
+    /// is needed. The engine will generate a random value each time.
+    /// </summary>
+    internal sealed class RandomNumberEngine : INoiseEngine
     {
-        private Random rng;
+        private readonly Random rng;
 
-        public RandomNumberEngine(int seed)
+        internal RandomNumberEngine(int seed)
         {
             this.rng = new Random(seed);
         }
