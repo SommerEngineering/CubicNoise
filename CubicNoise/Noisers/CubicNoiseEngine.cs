@@ -14,7 +14,7 @@ namespace CubicNoise.Noisers
         private readonly int octave;
         private readonly int periodX;
         private readonly int periodY;
-        private int seed;
+        private readonly int seed;
 
         public CubicNoiseEngine(int seed, Dictionary<IParameterName, int> intParameters)
         {
