@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Thorsten Sommer</Authors>
+    <Copyright>Thorsten Sommer</Copyright>
+    <PackageProjectUrl>https://github.com/SommerEngineering/CubicNoise</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SommerEngineering/CubicNoise</RepositoryUrl>
+    <PackageTags>Noise, Procedural Generation, Cubic Noise</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
