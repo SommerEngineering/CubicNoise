@@ -6,10 +6,14 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Thorsten Sommer</Authors>
     <Copyright>Thorsten Sommer</Copyright>
-    <PackageProjectUrl>https://github.com/SommerEngineering/CubicNoise</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SommerEngineering/CubicNoise</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/SommerEngineering/NoiseEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SommerEngineering/NoiseEngine</RepositoryUrl>
     <PackageTags>Noise, Procedural Generation, Cubic Noise</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0.1</Version>
+    <Description />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
