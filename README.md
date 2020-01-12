@@ -10,7 +10,7 @@ I thank Job Talle for his cubic noise algorithm. In [his article](https://jobtal
 # Citation
 The library can also be cited in scientific works, for example as follows:
 
-*Sommer, Thorsten (2020): NoiseEngine. Github: https://github.com/SommerEngineering/NoiseEngine, DOI: [doi.org/10.5281/zenodo.3605398](https://doi.org/10.5281/zenodo.3605398)*
+*Sommer, Thorsten (2020): NoiseEngine. Github: https://github.com/SommerEngineering/NoiseEngine, DOI: [doi.org/10.5281/zenodo.3605397](https://doi.org/10.5281/zenodo.3605397)*
 
 # License
 This library uses the BSD 3-clause license.
