@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CubicNoise\CubicNoise.csproj" />
+    <ProjectReference Include="..\NoiseEngine\NoiseEngine.csproj" />
   </ItemGroup>
 
 </Project>

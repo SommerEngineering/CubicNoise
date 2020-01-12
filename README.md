@@ -1,2 +1,2 @@
-# CubicNoise
-A CubicNoise implementation for .NET Core.
+# NoiseEngine
+A noise engine implementation for .NET Core.

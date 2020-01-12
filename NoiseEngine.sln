@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicNoise", "CubicNoise\CubicNoise.csproj", "{F7F37856-6952-4EB6-BDC7-221BDDE529CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoiseEngine", "NoiseEngine\NoiseEngine.csproj", "{F7F37856-6952-4EB6-BDC7-221BDDE529CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicNoiseTests", "CubicNoiseTests\CubicNoiseTests.csproj", "{28AA7CEE-CC12-4CAF-AA8E-82E7B099DEF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoiseEngineTests", "NoiseEngineTests\NoiseEngineTests.csproj", "{28AA7CEE-CC12-4CAF-AA8E-82E7B099DEF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
