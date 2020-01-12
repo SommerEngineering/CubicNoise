@@ -7,5 +7,10 @@ This library was implemented especially for .NET Core 3.1 and newer. It is there
 # Acknowledgments
 I thank Job Talle for his cubic noise algorithm. In [his article](https://jobtalle.com/cubic_noise.html) you can read more about the algorithm and its properties. My implementation is based on [the implementation of Job](https://github.com/jobtalle/CubicNoise).
 
+# Citation
+The library can also be cited in scientific works, for example as follows:
+
+*Sommer, Thorsten (2020): NoiseEngine. Github: https://github.com/SommerEngineering/NoiseEngine, DOI: [doi.org/10.5281/zenodo.3605398](https://doi.org/10.5281/zenodo.3605398)*
+
 # License
 This library uses the BSD 3-clause license.
