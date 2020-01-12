@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise.Contracts;
-using CubicNoise.Noisers;
+using NoiseEngine.Contracts;
+using NoiseEngine.Noisers;
 
-namespace CubicNoise
+namespace NoiseEngine
 {
     /// <summary>
     /// The main class of the library. You should use it to generate a noise engine. This class is thread-safe.
@@ -14,11 +14,11 @@ namespace CubicNoise
     ///
     /// Not only the factory method is thread-safe. Each instance of the class is thread-safe as well.
     /// </summary>
-    public sealed class NoiseEngine : INoiseEngine
+    public sealed class NoiseProcessor : INoiseEngine
     {
         private readonly INoiseEngine engine;
 
-        private NoiseEngine(NoiseTypes type, int seed, IReadOnlyDictionary<IParameterName, int> intParameters)
+        private NoiseProcessor(NoiseTypes type, int seed, IReadOnlyDictionary<IParameterName, int> intParameters)
         {
             this.engine = type switch
             {
@@ -36,7 +36,7 @@ namespace CubicNoise
         /// </summary>
         /// <param name="parameters">The parameters for the desired noise engine.</param>
         /// <returns>The desired noise engine instance.</returns>
-        public static NoiseEngine Create(EngineParameters parameters) => new NoiseEngine(parameters.Type, parameters.Seed, parameters?.IntParameters);
+        public static NoiseProcessor Create(EngineParameters parameters) => new NoiseProcessor(parameters.Type, parameters.Seed, parameters?.IntParameters);
 
         /// <summary>
         /// Yields a one-dimensional based noise value. This method is thread-safe as well. Call it from as

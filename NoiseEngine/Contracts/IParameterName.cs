@@ -1,4 +1,4 @@
-﻿namespace CubicNoise.Contracts
+﻿namespace NoiseEngine.Contracts
 {
     /// <summary>
     /// An interface which gets used to provide arbitrary parameter names

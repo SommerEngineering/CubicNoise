@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise.Contracts;
+using NoiseEngine.Contracts;
 
-namespace CubicNoise
+namespace NoiseEngine
 {
     /// <summary>
     /// This class stores all parameters needed to create a noise engine instance.

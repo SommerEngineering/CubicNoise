@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using CubicNoise.Contracts;
+using NoiseEngine.Contracts;
 
-namespace CubicNoise.Noisers
+namespace NoiseEngine.Noisers
 {
     /// <summary>
     /// This is the cubic noise engine by Job Talle, cf. https://jobtalle.com/cubic_noise.html. It based on the

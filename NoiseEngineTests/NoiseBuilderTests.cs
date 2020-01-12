@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise;
-using CubicNoise.Contracts;
-using CubicNoise.Noisers;
+using NoiseEngine;
+using NoiseEngine.Contracts;
+using NoiseEngine.Noisers;
 using NUnit.Framework;
 
-namespace CubicNoiseTests
+namespace NoiseEngineTests
 {
     public class NoiseBuilderTests
     {
         [Test]
         public void StraightCreation()
         {
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -41,7 +41,7 @@ namespace CubicNoiseTests
         [Test]
         public void NoParameters()
         {
-            var engine = NoiseEngine.Create(new EngineParameters());
+            var engine = NoiseProcessor.Create(new EngineParameters());
 
             Assert.That(engine, Is.Not.Null);
 
@@ -62,7 +62,7 @@ namespace CubicNoiseTests
         {
             try
             {
-                var engine = NoiseEngine.Create(null);
+                var engine = NoiseProcessor.Create(null);
                 Assert.Fail("Null instead of parameters should not work.");
             }
             catch
@@ -74,7 +74,7 @@ namespace CubicNoiseTests
         [Test]
         public void PartialParameters()
         {
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,

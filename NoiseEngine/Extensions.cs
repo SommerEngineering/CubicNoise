@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise.Noisers;
+using NoiseEngine.Noisers;
 
-namespace CubicNoise
+namespace NoiseEngine
 {
     /// <summary>
     /// Extension methods for this library.

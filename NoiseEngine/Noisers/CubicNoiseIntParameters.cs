@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CubicNoise.Contracts;
+using NoiseEngine.Contracts;
 
-namespace CubicNoise.Noisers
+namespace NoiseEngine.Noisers
 {
     /// <summary>
     /// This class contains all known cubic noise's parameters.

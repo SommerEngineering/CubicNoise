@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CubicNoise
+namespace NoiseEngine
 {
     /// <summary>
     /// All implemented noise generators.

@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using CubicNoise;
-using CubicNoise.Contracts;
-using CubicNoise.Noisers;
+using NoiseEngine;
+using NoiseEngine.Contracts;
+using NoiseEngine.Noisers;
 using NUnit.Framework;
 
-namespace CubicNoiseTests
+namespace NoiseEngineTests
 {
-    public class CubicNoiseTests
+    public class NoiseEngineTests
     {
         [Test]
         public void TestValidity()
         {
-            var engineO57PX12PY16 = NoiseEngine.Create(new EngineParameters
+            var engineO57PX12PY16 = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -26,7 +26,7 @@ namespace CubicNoiseTests
                 },
             });
 
-            var engineO45PX16PY99 = NoiseEngine.Create(new EngineParameters
+            var engineO45PX16PY99 = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetDeterministicHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -113,7 +113,7 @@ namespace CubicNoiseTests
             var counter = 0;
             var sum = 0L;
 
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -154,7 +154,7 @@ namespace CubicNoiseTests
             var counter = 0;
             var sum = 0L;
 
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -195,7 +195,7 @@ namespace CubicNoiseTests
             var counter = 0;
             var sum = 0L;
 
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,
@@ -235,7 +235,7 @@ namespace CubicNoiseTests
             var counter = 0;
             var sum = 0L;
 
-            var engine = NoiseEngine.Create(new EngineParameters
+            var engine = NoiseProcessor.Create(new EngineParameters
             {
                 Seed = "test seed".GetHashCode(),
                 Type = NoiseTypes.CUBIC_NOISE,

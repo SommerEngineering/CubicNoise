@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CubicNoise.Contracts
+namespace NoiseEngine.Contracts
 {
     /// <summary>
     /// An interface which each noise generator must implement.
